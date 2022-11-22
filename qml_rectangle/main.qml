@@ -5,16 +5,28 @@ Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("My Window")
 
 
    Rectangle
    {
-       color: "orange"
+
+       color: "red"
        width:250
        height: 30
-      anchors.centerIn: parent
-      opacity: 0.5
+      opacity: 1
+      x:150
+      y:120
+      z: 1250
+
+   }
+   Rectangle
+   {
+       color: "green"
+      width: 250
+      height: 30
+      x: 150
+      y: 200
 
    }
 }
