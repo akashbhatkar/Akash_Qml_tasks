@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/Images">
+        <file>Screenshot (1).png</file>
+        <file>Screenshot (2).png</file>
+        <file>Screenshot (3).png</file>
+        <file>Screenshot (4).png</file>
+        <file>Screenshot (5).png</file>
+        <file>Screenshot (21).png</file>
+        <file>Screenshot (24).png</file>
+        <file>Screenshot (25).png</file>
+        <file>Screenshot (26).png</file>
+        <file>Screenshot (27).png</file>
+    </qresource>
+</RCC>
