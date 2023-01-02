@@ -189,144 +189,50 @@ color: "red"
 
   }
 /********************************************************************************* FIRSTROW ********************************************************************************************/
-//  ScrollView {
-//id:scroll
-//      x: 295
-//      y: 17
-//      width: 50
-//      height: 510
-//      rotation: -270
-//      spacing:10
-//      visible: false
-//  ListView {
-//      x: 0
-//      y: 451
-//      width: 50
-//      height: 50
-//      clip: true
-//      model: 32
-
-//      delegate: ItemDelegate {
-
-//      Rectangle{
-//          height: 30
-//          width: 50
-//          color: "skyblue"
-//      }
-//      Rectangle{
-//          height: 30
-//          width: 50
-//          color: "skyblue"
-//      }
-//      Rectangle{
-//          height: 30
-//          width: 50
-//          color: "skyblue"
-//      }
-//      Rectangle{
-//          height: 30
-//          width: 50
-//          color: "skyblue"
-//      }
-
-//      }
-//  }
-//  }
-
-  Row{
-      id: secondbottomrow
-      y: parent.height-100
-      width: wd.width
-      spacing: 70
+  ScrollView {
+id:scroll
+      x: 295
+      y: 17
+      width: 50
+      height: 510
+      rotation: -270
+      spacing:10
       visible: false
-   Rectangle
-   {
-        id: sbb1
-       height:50
-       width: 50
-       color: "orange"
-       Text {
-           anchors.centerIn:  parent
-           id: secrecttext
-           text: qsTr("Click")
-           font.bold: true
-           font.pointSize: 10
-       }
-       MouseArea{
-           anchors.fill: parent
-           onClicked: {
-               middlerow.visible=false
-            //   scroll.visible=false
-               secondbottomrow.visible=false
-               transrect.visible=false
-               tumbler.visible=false
-           }
-       }
-   }
-   Rectangle
-   {
+  ListView {
+      x: 0
+      y: 451
+      width: 50
+      height: 50
+      clip: true
+      model: 32
 
-       height:50
-       width: 50
-color: "red"
-   }
-   Rectangle
-   {
+      delegate: ItemDelegate {
 
-       height:50
-       width: 50
-color: "red"
-   }
-   Rectangle
-   {
+      Rectangle{
+          height: 30
+          width: 50
+          color: "skyblue"
+      }
+      Rectangle{
+          height: 30
+          width: 50
+          color: "skyblue"
+      }
+      Rectangle{
+          height: 30
+          width: 50
+          color: "skyblue"
+      }
+      Rectangle{
+          height: 30
+          width: 50
+          color: "skyblue"
+      }
 
-       height:50
-       width: 50
-       color: "red"
-   }
-   Rectangle
-   {
-
-       height:50
-       width: 50
-color: "red"
-   }
-   Rectangle
-   {
-
-       height:50
-       width: 50
-color: "red"
-   }
-   Rectangle
-   {
-
-       height:50
-       width: 50
-color: "red"
-   }
-   Rectangle
-   {
-
-       height:50
-       width: 50
-       color: "red"
-   }
-   Rectangle
-   {
-
-       height:50
-       width: 50
-       color: "red"
-   }
-   Rectangle
-   {
-
-       height:50
-       width: 50
-       color: "red"
-   }
+      }
   }
+  }
+
 
   Rectangle {
       id:transrect
