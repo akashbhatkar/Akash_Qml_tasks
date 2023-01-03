@@ -20,15 +20,9 @@ Window {
 
     onSelectedIndexChanged: {
         // console.log("selected index", selectedIndex)
-
     }
 
     /************************************************ UPPER ROW ****************************************************************************************/
-
-
-
-
-
     Flickable{
         id:flicakbleArea
         width:405
@@ -48,12 +42,7 @@ Window {
 
             var closestIndex = Math.round(contentX/100)
             selectedIndex = closestIndex
-            if(selectedIndex==22)
-            {
-                console.log("hello")
-                flicakbleArea.atXEnd
-            }
-            console.log("selected index", selectedIndex)
+
             middlerepeat.itemAt(0).color=flickRepeater.itemAt(selectedIndex).color
 
             middlerepeat.itemAt(1).color=flickRepeater.itemAt(selectedIndex+1).color
@@ -80,8 +69,7 @@ Window {
                     id:upprerect
                     color:"red"
                     radius:7
-                    border.color: "black"
-                    border.width: 2
+
                     //                    }
 
                     width:90
@@ -89,7 +77,15 @@ Window {
 
                     Text{
                         id:flickbottomtext
-                        text:"Off"
+                        text:{
+                            if(upprerect.color===offf)
+                            {
+                                offstate
+                            }
+                            else
+                                onstate
+                        }
+
                         color:"white"
                         font.pixelSize: 12
                         anchors.bottom: parent.bottom
@@ -100,7 +96,14 @@ Window {
                         anchors.bottom: flickbottomtext.top
                         anchors.top: flickmiddletext.bottom
                         width: parent.width
-                        source: "qrc:/Images/Light_Off.jpg"
+                        source: if(upprerect.color===offf)
+                                {
+                            "qrc:/Images/Light_Off.jpg"
+                                }
+                        else
+                             {
+                                    "qrc:/Images/Light_On.jpg"
+                                }
 
                     }
                     Text{
@@ -117,17 +120,11 @@ Window {
                             //                            console.log(flickered.index)
                             if( upprerect.color==offf)
                             {
-                                flickbottomtext.text=onstate
                                 upprerect.color=onn
-                                flickmiddleimage.source=onimage
-
                             }
                             else
                             {
-                                flickbottomtext.text=offstate
                                 upprerect.color=offf
-                                flickmiddleimage.source=offimage
-
                             }
                             middlerepeat.itemAt(0).color=flickRepeater.itemAt(selectedIndex).color
                             middlerepeat.itemAt(1).color=flickRepeater.itemAt(selectedIndex+1).color
@@ -142,7 +139,7 @@ Window {
         }
     }
 
-    /**************************************************************************** SECONDWINDOW  *********************************************************************************************/
+    /**************************************************************************** MIDDLEROW  *********************************************************************************************/
     Row{
         id: middlerow
         x: 431
@@ -152,8 +149,6 @@ Window {
         Repeater{
             id:middlerepeat
             model:4
-
-
             Rectangle
             {
                 id:sb1
@@ -167,7 +162,7 @@ Window {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom-70
                     anchors.centerIn:parent.width/2
-                    anchors.horizontalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
                     text:{
                         if(sb1===middlerepeat.itemAt(0))
                         {
@@ -207,8 +202,8 @@ Window {
                 Text {
                     anchors.top: middlerepeatimage.bottom
                     height: sb1text.height
-                    width: sb1.width
-                    anchors.horizontalCenter: parent
+
+                    anchors.horizontalCenter: parent.horizontalCenter
                     id: sb1bottomtext
                     color: "white"
                     text: {
@@ -217,7 +212,32 @@ Window {
                             offstate
                         }
                         else
+                        {
                             onstate
+                        }
+                    }
+
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        if(sb1bottomtext.text===offstate)
+                        {
+                            sb1.color=onn
+                            flickRepeater.itemAt(selectedIndex).color=middlerepeat.itemAt(0).color
+                            flickRepeater.itemAt(selectedIndex+1).color=middlerepeat.itemAt(1).color
+                            flickRepeater.itemAt(selectedIndex+2).color=middlerepeat.itemAt(2).color
+                            flickRepeater.itemAt(selectedIndex+3).color=middlerepeat.itemAt(3).color
+                        }
+                        else
+                        {
+                            sb1.color=offf
+                            flickRepeater.itemAt(selectedIndex).color=offf
+                            flickRepeater.itemAt(selectedIndex).color=middlerepeat.itemAt(0).color
+                            flickRepeater.itemAt(selectedIndex+1).color=middlerepeat.itemAt(1).color
+                            flickRepeater.itemAt(selectedIndex+2).color=middlerepeat.itemAt(2).color
+                            flickRepeater.itemAt(selectedIndex+3).color=middlerepeat.itemAt(3).color
+                        }
                     }
                 }
             }
